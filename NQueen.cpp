@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #include <windows.h>
 using namespace std;
-
 void printboard(vector<string> &board){
     system("cls"); // Clear the console
     for(int i = 0; i < board.size(); i++){
@@ -11,7 +10,7 @@ void printboard(vector<string> &board){
         cout << "\n";
     }
     cout << "\n";
-    Sleep(600);
+    Sleep(200);
 }
 
 void backtrack(int r, int n, unordered_set<int>& col, unordered_set<int>& posdiag, unordered_set<int>& negdiag, vector<string>& board, vector<vector<string>>& res) {
@@ -46,7 +45,7 @@ vector<vector<string>> solveNQueens(int n) {
 
     vector<vector<string>> res;
     vector<string> board(n, string(n, '.'));
-    printboard(board); // Print the initial empty board
+    printboard(board);
     backtrack(0, n, col, posdiag, negdiag, board, res);
     return res;
 }
@@ -55,7 +54,6 @@ int main() {
     int n;
     cout << "Enter the number of queens: ";
     cin >> n;
-
     vector<vector<string>> ans = solveNQueens(n);
     for(int i = 0; i < ans.size(); i++){
         for(int j = 0; j < ans[i].size(); j++){
